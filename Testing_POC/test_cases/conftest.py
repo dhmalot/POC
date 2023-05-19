@@ -58,7 +58,7 @@ def setup(request):
         driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
     driver.maximize_window()
 
-    driver.get('https://www.myntra.com/')
+    driver.get('https://www.myntra.com/') # opening required website only once for all the testcases
     driver.implicitly_wait(10)
     driver.delete_all_cookies()
 

@@ -1,10 +1,10 @@
 import pytest
 import time
 
-from webpages.HomePage import HomePage
-from webpages.HomeLiving import HomeLiving
-from webpages.FloorLamp import FloorLamp
-from webpages.ProductDetails import ProductDetails
+from Testing_POC.webpages.HomePage import HomePage
+from Testing_POC.webpages.HomeLiving import HomeLiving
+from Testing_POC.webpages.FloorLamp import FloorLamp
+from Testing_POC.webpages.ProductDetails import ProductDetails
 
 
 @pytest.mark.usefixtures("setup")
@@ -12,8 +12,7 @@ class TestSample:
     def test_check_browser_functionality(self):
         home_page = HomePage(self.driver)
         time.sleep(5)
-        home_page.get_section_list()
-        print("Successfully ran the first test case")
+        home_page.get_section_list() # for getting all the product category sections on home page
         home_page.click_home_and_living()
         home_living = HomeLiving(self.driver)
         # time.sleep(5)
@@ -37,10 +36,8 @@ class TestSample:
         product_page.click_wishlist()
 
         current_url = self.driver.current_url
-        if "login" in current_url:
-            print("Login prompt opened successfully")
-        else:
-            print("Prompt opening failed.")
+        assert "login" in current_url
+
 
         # signin_ele = self.driver.find_element(*HomePage.signin_xpath)
         # print(signin_ele.get_attribute("textContent"))
