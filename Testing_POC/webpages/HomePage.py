@@ -36,10 +36,5 @@ class HomePage:
         print(desired_list)
 
     def click_home_and_living(self):
-        # action = ActionChains(self.driver)
-        # action.scroll_by_amount(0, 800).perform()
-        # self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-        online_shop_link_before = self.driver.find_element(*HomePage.online_shopping_link_before)
-        self.driver.execute_script("arguments[0].scrollIntoView();", online_shop_link_before)
-        time.sleep(7)
+
         self.home_and_living_link.click()
